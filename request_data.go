@@ -53,7 +53,11 @@ func (q *QueryRequestData) Marshal() ([]byte, error) {
 	return []byte(postData.Encode()), nil
 }
 
-func NewJsonData(data any) RequestData {
+type JsonDataType interface {
+	map[string]string | map[string]any | any
+}
+
+func NewJsonData[T JsonDataType](data T) RequestData {
 	return &JsonRequestData{data: data}
 }
 
