@@ -14,7 +14,7 @@ type RequestData interface {
 var _ RequestData = (*JsonRequestData)(nil)
 
 type JsonRequestData struct {
-	data map[string]any
+	data any
 }
 
 func (j *JsonRequestData) Marshal() ([]byte, error) {
@@ -53,6 +53,10 @@ func (q *QueryRequestData) Marshal() ([]byte, error) {
 	return []byte(postData.Encode()), nil
 }
 
-func NewJsonData(data map[string]any) RequestData {
+func NewJsonData(data any) RequestData {
 	return &JsonRequestData{data: data}
 }
+
+// func New(data map[string]any) RequestData {
+// 	return &JsonRequestData{data: data}
+// }

@@ -11,12 +11,12 @@ func struct2Map(item interface{}) (map[string]interface{}, error) {
 	return fields, nil
 }
 
-func map2Struct[T any](item map[string]interface{}) (T, error) {
-	// var fields map[string]interface{}
-	var result T
-	err := mapstructure.Decode(item, &result)
-	if err != nil {
-		return result, err
-	}
-	return result, nil
-}
+// func map2Struct[T any](item map[string]interface{}) (T, error) {
+// 	// var fields map[string]interface{}
+// 	var result T
+// 	err := mapstructure.Decode(item, &result)
+// 	if err != nil {
+// 		return result, err
+// 	}
+// 	return result, nil
+// }
